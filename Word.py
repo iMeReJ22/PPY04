@@ -1,6 +1,6 @@
 class Word:
     def __init__(self, passwd, startPosition, mainIndex):
-        self.passwd = passwd
+        self.passwd = "" + passwd
         self.startPosition = startPosition
         self.toGuess = list()
         self.mainIndex = mainIndex
@@ -15,7 +15,8 @@ class Word:
         print(self.toGuess)
 
     def getPointsAndPrintOutcome(self, guess):
-        if guess == self.passwd:
+
+        if guess == self.passwd or guess == self.passwd.lower():
             pts = len(self.passwd)
             self.toGuess = self.toGuess
             print(f"Great choice, you get {pts} points.")

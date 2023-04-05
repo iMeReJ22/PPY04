@@ -51,7 +51,7 @@ class LoginHandler:
                 if yn == "n":
                     break
 
-    @staticmethoda
+    @staticmethod
     def __getEmailAndPrintPrompts():
         email = input("Input your email:\t")
         while email != input("Repeat your email:\t"):
