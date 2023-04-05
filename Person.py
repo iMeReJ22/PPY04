@@ -10,22 +10,22 @@ class Person:
         return f"{self.nick};{self.email};{self.password}"
 
     def cypherObject(self):
-        self.nick = self._cipher(self.nick)
-        self.email = self._cipher(self.email)
-        self.password = self._cipher(self.email)
+        self.nick = self.__cipher(self.nick)
+        self.email = self.__cipher(self.email)
+        self.password = self.__cipher(self.email)
 
     def decipherObject(self):
-        self.nick = self._decipher(self.nick)
-        self.email = self._decipher(self.email)
-        self.password = self._decipher(self.email)
+        self.nick = self.__decipher(self.nick)
+        self.email = self.__decipher(self.email)
+        self.password = self.__decipher(self.email)
 
-    def _cipher(self, toCipher):
+    def __cipher(self, toCipher):
         tmp = list(toCipher)
         for i in range(len(tmp)):
             tmp[i] = self._key2[self._key1.index(tmp[i])]
         return listToString(tmp)
 
-    def _decipher(self, toDeCipher):
+    def __decipher(self, toDeCipher):
         tmp = list(toDeCipher)
         for i in range(len(tmp)):
             tmp[i] = self._key1[self._key2.index(tmp[i])]
