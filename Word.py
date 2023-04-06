@@ -10,9 +10,11 @@ class Word:
 
     def printWord(self):
         for i in range(self.startPosition):
-            if i == self.mainIndex or i == self.mainIndex-1:
-                print("|", end="")
-            print(" ", end="")
+            if i == self.mainIndex:
+                print("[", end="")
+            if i == self.mainIndex-1:
+                print("]", end="")
+            print("_", end="")
         print(self.toGuess)
 
     def getPointsAndPrintOutcome(self, guess):

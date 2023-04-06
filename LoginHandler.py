@@ -20,6 +20,7 @@ class LoginHandler:
         people = list()
         file = open("Data/loginData.txt", "r")
         for line in file:
+            line = line.replace("\n", "")
             parts = line.split(";")
             person = Person(parts[0], parts[1], parts[2])
             person.decipherObject()
