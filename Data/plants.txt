@@ -1,0 +1,11 @@
+growth;5;0;Plant with a single stem or trunk, supporting branches and leaves above the ground.
+tree;3;2;Plants that are used for medicinal, culinary, or aromatic purposes.
+herbs;3;2;The male reproductive organ of a flower, consisting of a filament and an anther.
+stamen;2;3;Plants with long, slender stems that grow along the ground or climb up and wrap around other objects or plants for support.
+vines;4;1;A type of legume that are commonly consumed as a food.
+beans;2;3;Flattened, usually green structures that are attached to the stem of a plant.
+trowel;5;0;
+Small handheld tool with a flat, pointed blade that is used for digging, spreading, and smoothing materials.
+mildew;4;1;Type of fungus that can grow on surfaces, such as walls, fabrics, and plants.
+tomatoes;0;5;Typically round or oblong in shape and come in a variety of colors, including red, yellow, and green.
+orange;2;3;What color are marigold flowers?

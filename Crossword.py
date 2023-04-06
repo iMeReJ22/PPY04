@@ -1,7 +1,12 @@
+from Word import Word
 from WordSet import WordSet
 
 
 class Crossword:
+    def __init__(self):
+        wordSet = self.__getWordSetAndPrintPrompts()
+
+
     def __getWordSetAndPrintPrompts(self):
         wordSets = self.__getWordSets()
         for i in range(len(wordSets)):
@@ -23,8 +28,8 @@ class Crossword:
     @staticmethod
     def __getWordSets():
         wordSets = list()
-        wordSets.append(WordSet("Plants", "germination", {
-            "growth": "Process of increasing in physical size, mass, volume, or number of cells.",
+        wordSets.append(WordSet("Plants", "germination", [
+            Word("growth", "Process of increasing in physical size, mass, volume, or number of cells.")
             "tree": "Plant with a single stem or trunk, supporting branches and leaves above the ground.",
             "herbs": "Plants that are used for medicinal, culinary, or aromatic purposes.",
             "stamen": "The male reproductive organ of a flower, consisting of a filament and an anther.",
@@ -35,7 +40,7 @@ class Crossword:
             "mildew": "Type of fungus that can grow on surfaces, such as walls, fabrics, and plants.",
             "tomatoes": "Typically round or oblong in shape and come in a variety of colors, including red, yellow, and green.",
             "orange": "What color are marigold flowers?"
-        }))
+        ]))
 
         return wordSets
 

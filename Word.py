@@ -1,9 +1,10 @@
 class Word:
-    def __init__(self, passwd, startPosition, mainIndex):
+    def __init__(self, passwd, startPosition, mainIndex, clue):
         self.passwd = "" + passwd
         self.startPosition = startPosition
         self.toGuess = list()
         self.mainIndex = mainIndex
+        self.clue = clue
         for i in range(len(passwd)):
             self.toGuess.append("_")
 
