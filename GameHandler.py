@@ -98,7 +98,7 @@ class GameHandler:
                         else:
                             p2Points *= points
                         self.__crossword.wordSet.revealAllWords()
-                        self.__printPromptsOne(playerOne, p1Points)
+                        self.__printPromptsTwo(playerOne, p1Points, playerTwo, p2Points)
                         print(f"Great job!\n{self.__crossword.wordSet.main} - {self.__crossword.wordSet.mainExpl}")
                         break
                     else:

@@ -3,6 +3,7 @@ class Person:
         self.nick = nick
         self.email = email
         self.password = password
+        self.loggedIn = False
         self._key1 = list("abcdefgoprstuwxyz1236789")
         self._key2 = list("9876321zyxwutsrpogfedcba")
 

@@ -6,7 +6,6 @@ class LoginHandler:
         self.__people = self.__getPeople()
 
     def getPersonAndPrintMenuPrompt(self):
-
         while True:
             try:
                 n = int(input("1. Login.\n2. Register.\n3. Exit\n"))
@@ -49,6 +48,7 @@ class LoginHandler:
                 file = open("Data/loginData.txt", "a")
                 file.write(person.__str__()+"\n")
                 file.close()
+                person.decipherObject()
                 print("You have been registered.")
                 break
             except ValueError as e:
@@ -81,7 +81,10 @@ class LoginHandler:
                 for i in range(3):
                     password = input("Input password:\t")
                     if person.password == password:
-                        print(f"{person.nick} logged in.")
+                        print(f"\n******************************\n"
+                              f"{person.nick} logged in.\n"
+                              f"******************************\n")
+                        person.loggedIn = True
                         return person
                     else:
                         print("Wrong password, try again.")
@@ -105,4 +108,6 @@ class LoginHandler:
                 person = p
         if person is None:
             raise Exception("No account with that email.")
+        if person.loggedIn:
+            raise Exception("That account is already logged in.")
         return person
