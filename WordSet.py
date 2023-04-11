@@ -14,12 +14,35 @@ class WordSet:
             parts = line.split(";")
             if first:
                 first = False
-                self.theme = parts[0]
-                self.main = parts[1]
+                self.main = parts[0]
+                self.mainExpl = parts[1]
+                self.theme = parts[2]
+
             else:
                 self.words.append(Word(parts[0], parts[1], parts[2], parts[3]))
 
+    def revealAllWords(self):
+        for w in self.words:
+            w.revealWord()
+
+    def returnNotGuessedNumberOfWordsAndCheckMainWord(self, guess):
+        if self.main == guess:
+            i = 0
+            for w in self.words:
+                if w.canGuess:
+                    i += 1
+            return i
+        else:
+            return -len(self.main)
+
+    def isEverythingGuessed(self):
+        for i in self.words:
+            if i.canGuess:
+                return False
+        return True
+
     def print(self):
-        print(f"{self.theme: }")
+        print(f"Theme: {self.theme:}")
         for i in range(len(self.words)):
-            print()
+            print(end=f"{i+1}.\t\t")
+            self.words[i].printWord()

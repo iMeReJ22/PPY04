@@ -6,14 +6,18 @@ class LoginHandler:
         self.__people = self.__getPeople()
 
     def getPersonAndPrintMenuPrompt(self):
+
         while True:
-            n = input("1. Login.\n2. Register.\n3. Exit")
-            if n == 1:
-                return self.__login()
-            if n == 2:
-                self.__register()
-            if n == 3:
-                exit(1)
+            try:
+                n = int(input("1. Login.\n2. Register.\n3. Exit\n"))
+                if n == 1:
+                    return self.__login()
+                if n == 2:
+                    self.__register()
+                if n == 3:
+                    exit(1)
+            except ValueError:
+                print("Invalid input, try again.")
 
     @staticmethod
     def __getPeople():
@@ -37,18 +41,18 @@ class LoginHandler:
                 person = Person(nick, email, password)
                 for p in self.__people:
                     if p.nick == person.nick:
-                        raise Exception("nick")
+                        raise ValueError("nick")
                     if p.email == person.email:
-                        raise Exception("email")
+                        raise ValueError("email")
                 self.__people.append(person)
                 person.cypherObject()
                 file = open("Data/loginData.txt", "a")
-                file.write(person.__str__())
+                file.write(person.__str__()+"\n")
                 file.close()
                 print("You have been registered.")
                 break
-            except Exception as e:
-                yn = input(f"There is already a person with {e} in the database.\nTry again? (y/n)")
+            except ValueError as e:
+                yn = input(f"There is already a person with that {e} in the database.\nTry again? (y/n)")
                 if yn == "n":
                     break
 
@@ -88,13 +92,11 @@ class LoginHandler:
                 print(ve.__str__() + "Try again.")
             except Exception as e:
                 print(e)
-                yn = input("Do you want to register? (y/n): ")
-                if yn == "y":
+                if input("Do you want to register? (y/n): ") == "y":
                     self.__register()
                 else:
-                    yn = input("Do you want to try again? (y/n): ")
-                    if yn == "n":
-                        break
+                    if input("Do you want to try again? (y/n): ") == "n":
+                        exit(1)
 
     def __getPersonByEmail(self, email):
         person = None
